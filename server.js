@@ -8,10 +8,12 @@ host: process.env.REDIS_CLUSTER_PRIMARY_ENDPOINT,
 port: '6379',
 }];
 const options = {
+    dnsLookup: (address, callback) => callback(null, address),
     redisOptions: {
         tls: {}
     }
 }
+
 
 
 // Constants
