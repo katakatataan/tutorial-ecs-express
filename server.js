@@ -22,7 +22,7 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
-app.get('/', (req, res) => {
+app.get('/', (req, resp) => {
   const cluster = new Redis.Cluster(nodes,options);
 
   cluster.set('test-key', 'test-value');
@@ -33,9 +33,9 @@ app.get('/', (req, res) => {
     if (err) {
         console.error(err)
     }
-      
+
     cluster.disconnect()
-    res.send(res);
+    resp.send(res);
   });
 
 });
